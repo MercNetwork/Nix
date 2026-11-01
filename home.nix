@@ -216,6 +216,8 @@ in {
         "XF86MonBrightnessDown" = "spawn:noctalia msg brightness-down";
         "Mod+Escape" = "session-quit";
       };
+    } // lib.optionalAttrs (hostName == "MercDesk") {
+      output."HDMI-A-3".mode = "1920x1080@165";
     };
   };
 }
