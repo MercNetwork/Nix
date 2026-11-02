@@ -90,6 +90,7 @@ in {
     android-tools
     jdk17
     tailscale
+    spotify
   ];
 
   programs.zed-editor = {
@@ -142,7 +143,7 @@ in {
 
   # Shared Umbriel configuration for all Linux Home Manager profiles.
   xdg.configFile."umbriel/config.toml" = lib.mkIf isLinux {
-    source = (pkgs.formats.toml {}).generate "umbriel-config.toml" {
+    source = (pkgs.formats.toml {}).generate "umbriel-config.toml" ({
       general = {
         autostart = [ "noctalia" ];
       };
@@ -218,6 +219,6 @@ in {
       };
     } // lib.optionalAttrs (hostName == "MercDesk") {
       output."HDMI-A-3".mode = "1920x1080@165";
-    };
+    });
   };
 }
